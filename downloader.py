@@ -39,23 +39,17 @@ def getVidID(song, URL):
 
 
 n = int(input("Enter the number of Songs: "))
-songList = []
-print("Enter the name of the songs: ")
-for i in range(n):
-    songName = input(str(i+1)+". ")
-    songList += [songName]
-
-for song in songList:
-    try:
-        # song = input("Enter the name of the song: ")
-        print("Downloading " + song.titleCase())
-        URL = 'https://www.youtube.com/results?search_query='
-    
-        vidID = getVidID(song, URL)
-        link = 'https://www.youtube.com' + vidID
-        system("youtube-dl -x -q -o \'" + pathToSave + song.title() + ".%(ext)s\' \'" + link + "\'")
-        print("Downloaded " + song.title() + "\n")
-    
-    except:
-        print("AN ERROR OCCURED!!\nAre you connected to the internet?\nIf you are, try reading the README and see if it helps.")
+song = input()
+try:
+    # song = input("Enter the name of the song: ")
+    print("Downloading " + song.titleCase())
+    URL = 'https://www.youtube.com/results?search_query='
+ 
+    vidID = getVidID(song, URL)
+    link = 'https://www.youtube.com' + vidID
+    system("youtube-dl -x -q -o \'" + pathToSave + song.title() + ".%(ext)s\' \'" + link + "\'")
+    print("Downloaded " + song.title() + "\n")
+ 
+except:
+    print("AN ERROR OCCURED!!\nAre you connected to the internet?\nIf you are, try reading the README and see if it helps.")
 
