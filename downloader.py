@@ -45,18 +45,19 @@ for i in range(n):
     song = input()
     songList = songList + [song]
 
-#try:
-for song in songList:
-    # song = input("Enter the name of the song: ")
-    print("Downloading " + titleCase(song))
-    URL = 'https://www.youtube.com/results?search_query='
-    vidID = getVidID(song, URL)
-    link = 'https://www.youtube.com' + vidID
-    system("youtube-dl -x -q -o \'" + pathToSave + titleCase(song) + ".%(ext)s\' \'" + link + "\'")
-    print("Downloaded " + titleCase(song) + "\n") 
+try:
+    print('-------------------------------------------------------------')
+    for song in songList:
+        # song = input("Enter the name of the song: ")
+        print("Downloading " + titleCase(song))
+        URL = 'https://www.youtube.com/results?search_query='
+        vidID = getVidID(song, URL)
+        link = 'https://www.youtube.com' + vidID
+        system("youtube-dl -x -q -o \'" + pathToSave + titleCase(song) + ".%(ext)s\' \'" + link + "\'")
+        print("Downloaded " + titleCase(song) + "\n") 
         # print(link)
 
-
-#    print("AN ERROR OCCURED!!\nAre you connected to the internet?\nIf you are, try reading the README and see if it helps.")
+except:
+    print("AN ERROR OCCURED!!\nAre you connected to the internet?\nIf you are, try reading the README and see if it helps.")
 
 
