@@ -1,5 +1,6 @@
 # song-downloader
-A Python Script to download songs in the best available format from Youtube. Haven't tested it in a Windows machine. So, it would be nice if somebody could do it.
+A Python Script to download songs in the best available format from Youtube. Haven't tested it in a Windows machine. So, it would be nice if somebody could do it. As of now, it works with command line arguments. Why? No apparent reason, other than that it is more convinient for me. Just provide the song names after the program name, in quotes.  
+`python downloader.py "<Song1>" "<Song2>" ...`
 
 ### Dependancies
 * `urllib`: Install `urllib` module with `pip3` with this command  
