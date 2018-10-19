@@ -13,9 +13,9 @@ def titleCase(s):
 
     l = s.split()
     str = l[0][0].upper() + l[0][1:]
-    
+    list = ['in', 'the', 'for', 'of', 'a', 'at', 'an', 'is', 'and', 'to']
     for word in l[1:]:
-        if word not in ['in', 'the', 'for', 'of', 'a', 'at', 'an', 'is', 'and']:
+        if word not in list:
             str += ' ' + word[0].upper() + word[1:]
         else:
             str += ' ' + word
