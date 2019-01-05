@@ -28,7 +28,7 @@ def getVidID(song, URL):
     '''
     This function gets the ID of the Video you have to download.
     '''
-    search = song #+ ' lyrics'
+    search = song + ' lyrics'
     searchQuery = '+'.join(search.split())
     searchURL = URL + searchQuery
     
@@ -38,16 +38,25 @@ def getVidID(song, URL):
     vidID = soup.body.find_all(class_="yt-uix-tile-link")[0]['href']
     return vidID
 
-try:
-print('-------------------------------------------------------------')
-for song in sys.argv[1:]:
+def doStuff(song):
     print("Downloading " + titleCase(song))
     URL = 'https://www.youtube.com/results?search_query='
     vidID = getVidID(song, URL)
     link = 'https://www.youtube.com' + vidID
     system("youtube-dl -x -q -o \'" + pathToSave + titleCase(song) + ".%(ext)s\' \'" + link + "\'")
     print("Downloaded " + titleCase(song) + "\n") 
-except:
-    print("AN ERROR OCCURED!!\nAre you connected to the internet?\nIf you are, try reading the README and see if it helps.")
 
+def main():
+    print('-------------------------------------------------------------')
+    if (len(sys.argv) == 3 and (sys.argv[1] == '-i' or sys.argv[1] == '-I')):
+        for song in open(sys.argv[2]).readlines():
+            doStuff(song)
 
+    else:
+        for song in sys.argv[1:]:
+            doStuff(song)
+# except:
+#     print("AN ERROR OCCURED!!\nAre you connected to the internet?\nIf you are, try reading the README and see if it helps.")
+
+if __name__ == '__main__':
+    main();
