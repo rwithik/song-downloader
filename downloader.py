@@ -28,7 +28,7 @@ def getVidID(song, URL):
     '''
     This function gets the ID of the Video you have to download.
     '''
-    search = song #+ ' lyrics'
+    search = song + ' lyrics'
     searchQuery = '+'.join(search.split())
     searchURL = URL + searchQuery
     
